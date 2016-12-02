@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         stringCompare()
         stringLength()
         stringBreak()
+        randomValue()
+        math()
+        miscellaneous()
+        memoryAlloc()
+        getFunction()
     }
     
     func division() {
@@ -58,11 +63,14 @@ class ViewController: UIViewController {
         }
         
         destination = String(validatingUTF8: &string1.0)!
-        print("string copied second time: \(destination)")                 //converting the c String to swift string
+        print("string copied second time: \(destination)")                     //converting the c String to swift string
         
         if(destination == source) {
             print("string copied")
         }
+        
+//        calloc(,)
+//        arc4random()
     }
     
     func stringConcate() {
@@ -102,15 +110,15 @@ class ViewController: UIViewController {
 
         if(ret < 0)
         {
-            print("str1 is less than str2");
+            print("str1 is less than str2")
         }
         else if(ret > 0)
         {
-            print("str2 is less than str1");
+            print("str2 is less than str1")
         }
         else
         {
-            print("str1 is equal to str2");
+            print("str1 is equal to str2")
         }
         
         
@@ -207,7 +215,110 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func randomValue() {
+        
+        result = arc4random()
+        print("Random Value: \(result!)")
+        
+        result = arc4random_stir()
+        print("Random Value: \(result!)")
+        
+        result = arc4random_uniform(10)
+        print("Random Value: \(result!)")
+        
+    }
+    
+    
+    func math() {
+        
+        let PI = 3.14159265
+        
+        result = sqrt(100)
+        print("square root value of 100 is: \(result!)")
+        
+        result = fabs(50.988888)
+        print("absolute value of 50.988888 is: \(result!)")
+        
+        let x = 90.0;
+        let val = PI / 180.0;
+        let ret = cos( x*val )
+        print("The cosine of \(x) is \(ret) degrees")
+    }
+    
+    func miscellaneous() {
+        
+        result = srandom(200)
+        print("miscellaneous random value: \(result!)")
+        
+        result = labs(43343435)
+        print("labs result: \(result!)")
+        
+        let value = ldiv(300, 200)
+        print("ldiv result div: \(value.quot) rem: \(value.rem)")
+        
+        let variable:Int64 = 4897987295723957209
+        result = llabs(variable)
+        print("llabs result: \(result!)")
+        
+        let dividend:Int64 = 4897987295723957209
+        let divider:Int64 = 242342423
+        let r = lldiv(dividend,divider)
+        print("llabs result quot: \(r.quot) rem:\(r.rem)")
+        
+        let string = "H"
+        let cs = string.cString(using: String.Encoding.utf8)!
+        result = mblen(cs, 1)
+        print("result of mblen: \(result!)")
+        
+        typealias set1 = (wchar_t, wchar_t, wchar_t, wchar_t, wchar_t)
+        let string1 = "Hello"
+        var cs1 = string1.cString(using: String.Encoding.windowsCP1254)!
+        var stringSet1 = set1(wchar_t(cs1[0]), wchar_t(cs1[1]), wchar_t(cs1[2]), wchar_t(cs1[3]), wchar_t(cs1[4]))
+        
+        
+        
+        typealias set2 = (CChar, CChar, CChar, CChar, CChar)
+        let string2 = "World"
+        let cs2 = string2.cString(using: String.Encoding.utf8)!
+        var stringSet2 = set2(cs2[0], cs2[1], cs2[2], cs2[3], cs2[4])
+        
+        result = mbtowc(&stringSet1.0,&stringSet2.0 ,5)
+        print("result of mbtowc: \(result!)")
+        
+        result = mbtowc(&stringSet1.0,&stringSet2.0 ,5)
+        print("result of mbstowcs: \(result!)")
+        
 
+        
+    }
+    
+    func getFunction() {
+        
+        typealias set = (CChar, CChar, CChar, CChar)
+        
+        let source = "PATH"
+        let cs = source.cString(using: String.Encoding.utf8)!
+        
+        var string = set(cs[0], cs[1], cs[2], cs[3])         
+        result = getenv(&string.0)
+        
+        
+        print("result of get function: \(result)") 
+    }
+    
+    func memoryAlloc() {
+
+        
+
+        
+    //    public func mbstowcs(_: UnsafeMutablePointer<wchar_t>!, _: UnsafePointer<Int8>!, _: Int) -> Int
+    //    public func mbtowc(_: UnsafeMutablePointer<wchar_t>!, _: UnsafePointer<Int8>!, _: Int) -> Int32
+        
+        
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -216,3 +327,61 @@ class ViewController: UIViewController {
 
 }
 
+
+
+
+// var p = calloc(1, MemoryLayout<CGFloat>.size)                       //UnsafeMutablePointer<CGFloat>(calloc(1, sizeof(CGFloat)))
+
+//         var buff = calloc(UInt(sizeof(CChar)), 256)
+//         var n = read(conn, buff, 255)
+//         var charBuf = UnsafePointer<CGFloat>(p)
+//         charBuf[n] = 0
+//         var s: String = String.fromCString(charBuf)
+//         print(s)
+//
+//        &(p?)! = 10.0
+//
+//        print("calloc result: \(p!)")
+
+//        let arr = calloc(6,2)
+//        let pixels = calloc(6, MemoryLayout<Int>.size)
+//
+//
+//        for i in 0..<12 {
+//            pixels[i] = String.utf8CString(String(arc4random_uniform(12)))
+//        }
+//
+//        free(pixels)
+//
+//        print("calloc items: \(arr!)")
+//
+
+//        var name = UnsafeMutablePointer<utsname>.allocate(capacity: 1)
+//        uname(name)
+//
+//        let machine = withUnsafePointer(to: &name.pointee.machine, { (ptr) -> String? in
+//
+//            let int8Ptr = unsafeBitCast(ptr, to: UnsafePointer<Int8>.self)
+//            return String.fromCString(int8Ptr)
+//        })
+//
+//        name.deallocate(capacity: 1)
+//
+//        if let m = machine {
+//            print(m)
+//        }
+
+
+//    typealias set = (CChar)
+//    let string = "H"
+//    let cs1 = string.utf8CString
+//    var stringset = set(cs1[0])
+//    var p = (calloc(1, MemoryLayout<CChar>.size))
+//    var data = UnsafeMutablePointer<CChar>.allocate(capacity: 1)
+
+//        typealias set = (CChar, CChar, CChar, CChar, CChar)
+//        let str = "Hello"
+//        var cs = str.cString(using: String.Encoding.utf8)!
+//        var stringSet = set(cs[0], cs[1], cs[2], cs[3], cs[4])
+//        var p = calloc(5, MemoryLayout<CChar>.size)
+//        free(p)
