@@ -282,10 +282,10 @@ class ViewController: UIViewController {
         let cs2 = string2.cString(using: String.Encoding.utf8)!
         var stringSet2 = set2(cs2[0], cs2[1], cs2[2], cs2[3], cs2[4])
         
-        result = mbtowc(&stringSet1.0,&stringSet2.0 ,5)
+        result = mbtowc(&stringSet1.0,&stringSet2.0 ,5) 
         print("result of mbtowc: \(result!)")
         
-        result = mbtowc(&stringSet1.0,&stringSet2.0 ,5)
+        result = mbstowcs(&stringSet1.0,&stringSet2.0 ,5)
         print("result of mbstowcs: \(result!)")
         
 
