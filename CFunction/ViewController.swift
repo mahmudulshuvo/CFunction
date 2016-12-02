@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         randomValue()
         math()
         miscellaneous()
-        memoryAlloc()
         getFunction()
     }
     
@@ -306,17 +305,6 @@ class ViewController: UIViewController {
         
         print("result of get function: \(result)") 
     }
-    
-    func memoryAlloc() {
-
-        
-
-        
-    //    public func mbstowcs(_: UnsafeMutablePointer<wchar_t>!, _: UnsafePointer<Int8>!, _: Int) -> Int
-    //    public func mbtowc(_: UnsafeMutablePointer<wchar_t>!, _: UnsafePointer<Int8>!, _: Int) -> Int32
-        
-        
-    }
 
     
     override func didReceiveMemoryWarning() {
@@ -326,62 +314,3 @@ class ViewController: UIViewController {
 
 
 }
-
-
-
-
-// var p = calloc(1, MemoryLayout<CGFloat>.size)                       //UnsafeMutablePointer<CGFloat>(calloc(1, sizeof(CGFloat)))
-
-//         var buff = calloc(UInt(sizeof(CChar)), 256)
-//         var n = read(conn, buff, 255)
-//         var charBuf = UnsafePointer<CGFloat>(p)
-//         charBuf[n] = 0
-//         var s: String = String.fromCString(charBuf)
-//         print(s)
-//
-//        &(p?)! = 10.0
-//
-//        print("calloc result: \(p!)")
-
-//        let arr = calloc(6,2)
-//        let pixels = calloc(6, MemoryLayout<Int>.size)
-//
-//
-//        for i in 0..<12 {
-//            pixels[i] = String.utf8CString(String(arc4random_uniform(12)))
-//        }
-//
-//        free(pixels)
-//
-//        print("calloc items: \(arr!)")
-//
-
-//        var name = UnsafeMutablePointer<utsname>.allocate(capacity: 1)
-//        uname(name)
-//
-//        let machine = withUnsafePointer(to: &name.pointee.machine, { (ptr) -> String? in
-//
-//            let int8Ptr = unsafeBitCast(ptr, to: UnsafePointer<Int8>.self)
-//            return String.fromCString(int8Ptr)
-//        })
-//
-//        name.deallocate(capacity: 1)
-//
-//        if let m = machine {
-//            print(m)
-//        }
-
-
-//    typealias set = (CChar)
-//    let string = "H"
-//    let cs1 = string.utf8CString
-//    var stringset = set(cs1[0])
-//    var p = (calloc(1, MemoryLayout<CChar>.size))
-//    var data = UnsafeMutablePointer<CChar>.allocate(capacity: 1)
-
-//        typealias set = (CChar, CChar, CChar, CChar, CChar)
-//        let str = "Hello"
-//        var cs = str.cString(using: String.Encoding.utf8)!
-//        var stringSet = set(cs[0], cs[1], cs[2], cs[3], cs[4])
-//        var p = calloc(5, MemoryLayout<CChar>.size)
-//        free(p)
