@@ -15,7 +15,7 @@ class StdLibC  {
     init()  {
         swiftTest()
         simpleFunctions()
-        strtodC()
+      //  strtodC()
     }
     
     func  swiftTest() {
@@ -111,15 +111,15 @@ class StdLibC  {
 //        result = strtod(x, y)
 //        print("result of strtod: \(result)")
         
-        var nInt:Int8 = 123
-        let p = ptrFromAddress(p: &nInt)
-
-        
-        var nestedInt:Int8 = 5
-        var r = ptrFromAddress(p: &nestedInt)
-        let s = ptrFromAddress(p: &r)
-        
-        result = strtod(p,s)
+//        var nInt:Int8 = 123
+//        let p = ptrFromAddress(p: &nInt)
+//
+//        
+//        var nestedInt:Int8 = 5
+//        var r = ptrFromAddress(p: &nestedInt)
+//        let s = ptrFromAddress(p: &r)
+//        
+//        result = strtod(p,s)
         
 //        withUnsafeMutablePointer(&nInt) { (var w) in
 // 
