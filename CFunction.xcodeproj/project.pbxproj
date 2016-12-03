@@ -14,6 +14,9 @@
 		C83858811DEDA02D00579B86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C838587F1DEDA02D00579B86 /* LaunchScreen.storyboard */; };
 		C838588C1DEDA02D00579B86 /* CFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838588B1DEDA02D00579B86 /* CFunctionTests.swift */; };
 		C83858971DEDA02D00579B86 /* CFunctionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83858961DEDA02D00579B86 /* CFunctionUITests.swift */; };
+		C85BB1521DF22897005D3009 /* StringC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85BB1511DF22897005D3009 /* StringC.swift */; };
+		C85BB1541DF228B1005D3009 /* StdLibC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85BB1531DF228B1005D3009 /* StdLibC.swift */; };
+		C85BB1561DF228D2005D3009 /* MathC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85BB1551DF228D2005D3009 /* MathC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		C83858921DEDA02D00579B86 /* CFunctionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFunctionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83858961DEDA02D00579B86 /* CFunctionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFunctionUITests.swift; sourceTree = "<group>"; };
 		C83858981DEDA02D00579B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C85BB1511DF22897005D3009 /* StringC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringC.swift; sourceTree = "<group>"; };
+		C85BB1531DF228B1005D3009 /* StdLibC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdLibC.swift; sourceTree = "<group>"; };
+		C85BB1551DF228D2005D3009 /* MathC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			children = (
 				C83858761DEDA02D00579B86 /* AppDelegate.swift */,
 				C83858781DEDA02D00579B86 /* ViewController.swift */,
+				C85BB1511DF22897005D3009 /* StringC.swift */,
+				C85BB1531DF228B1005D3009 /* StdLibC.swift */,
+				C85BB1551DF228D2005D3009 /* MathC.swift */,
 				C838587A1DEDA02D00579B86 /* Main.storyboard */,
 				C838587D1DEDA02D00579B86 /* Assets.xcassets */,
 				C838587F1DEDA02D00579B86 /* LaunchScreen.storyboard */,
@@ -261,6 +270,9 @@
 			files = (
 				C83858791DEDA02D00579B86 /* ViewController.swift in Sources */,
 				C83858771DEDA02D00579B86 /* AppDelegate.swift in Sources */,
+				C85BB1521DF22897005D3009 /* StringC.swift in Sources */,
+				C85BB1541DF228B1005D3009 /* StdLibC.swift in Sources */,
+				C85BB1561DF228D2005D3009 /* MathC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +517,7 @@
 				C838589D1DEDA02D00579B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C838589E1DEDA02D00579B86 /* Build configuration list for PBXNativeTarget "CFunctionTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +526,7 @@
 				C83858A01DEDA02D00579B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C83858A11DEDA02D00579B86 /* Build configuration list for PBXNativeTarget "CFunctionUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +535,7 @@
 				C83858A31DEDA02D00579B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -16,16 +16,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        division()
-        stringCopy()
-        stringConcate()
-        stringCompare()
-        stringLength()
-        stringBreak()
-        randomValue()
-        math()
-        miscellaneous()
-        getFunction()
+//        division()
+//        stringCopy()
+//        stringConcate()
+//        stringCompare()
+//        stringLength()
+//        stringBreak()
+//        randomValue()
+//        math()
+//        miscellaneous()
+//        getFunction()
+        
+        StdLibC()
+        MathC()
+        StringC()
     }
     
     func division() {
@@ -68,8 +72,6 @@ class ViewController: UIViewController {
             print("string copied")
         }
         
-//        calloc(,)
-//        arc4random()
     }
     
     func stringConcate() {
@@ -288,6 +290,25 @@ class ViewController: UIViewController {
         result = mbstowcs(&stringSet1.0,&stringSet2.0 ,5)
         print("result of mbstowcs: \(result!)")
         
+      //  posix_memalign(_ __memptr: UnsafeMutablePointer<UnsafeMutableRawPointer?>!, _ __alignment: Int, _ __size: Int) -> Int32
+        
+
+        let p = (calloc(1, MemoryLayout<Int>.size))
+        print("calloc result : \(p!)")
+
+        free(p)
+        
+        let q = malloc(5)
+        print("malloc result : \(q!)")
+        
+        let x = realloc(q, 5)
+        print("realloc result : \(x!)")
+        
+        
+//        public func posix_memalign(_ __memptr: UnsafeMutablePointer<UnsafeMutableRawPointer?>!, _ __alignment: Int, _ __size: Int) -> Int32
+//        public func qsort(_ __base: UnsafeMutableRawPointer!, _ __nel: Int, _ __width: Int, _ __compar: @escaping @convention(c) (UnsafeRawPointer?, UnsafeRawPointer?) -> Int32
+    
+        
 
         
     }
@@ -296,16 +317,31 @@ class ViewController: UIViewController {
         
         typealias set = (CChar, CChar, CChar, CChar)
         
-        let source = "PATH"
+        let source = "PATH 12.3"
         let cs = source.cString(using: String.Encoding.utf8)!
         
         var string = set(cs[0], cs[1], cs[2], cs[3])         
         result = getenv(&string.0)
+        print("result of getenv function: \(result)")
+        
+//        typealias set1 = (CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar)
+//        let string1 = "Hello 12.458345"
+//        let cs1 = string1.cString(using: String.Encoding.utf8)!
+//        var stringSet3 = set1(cs1[0], cs1[1], cs1[2], cs1[3], cs1[4], cs1[5], cs1[6], cs1[7], cs1[8], cs1[9], cs1[10], cs1[11], cs1[12], cs1[13], cs1[14])
+//        let ptrI = UnsafeMutablePointer<Int8>.allocate(capacity: 4)
+//        let ptrII = UnsafeMutablePointer<UnsafeMutablePointer<Int8>>.allocate(capacity: 4)
+//        let test = strtod(&stringSet3.0, ptrII)
+//        print("strtod result : \(test)")
         
         
-        print("result of get function: \(result)") 
     }
 
+    func initRawAB() -> UnsafeMutableRawPointer {
+        let intPtr = UnsafeMutablePointer<Int>.allocate(capacity: 2)
+        intPtr[0] = 42 // knowing A is layout compatible with Int
+        intPtr[1] = 13 // knowing B is layout compatible with Int
+        return UnsafeMutableRawPointer(intPtr)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

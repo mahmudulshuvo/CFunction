@@ -1,0 +1,150 @@
+//
+//  StdLibC.swift
+//  CFunction
+//
+//  Created by Shuvo on 12/3/16.
+//  Copyright © 2016 SHUVO. All rights reserved.
+//
+
+import Foundation
+
+class StdLibC  {
+    
+    var result:Any? = nil
+    
+    init()  {
+        swiftTest()
+        simpleFunctions()
+        strtodC()
+    }
+    
+    func  swiftTest() {
+        print("\nStdLibC Class\n")
+    }
+    
+    func simpleFunctions() {
+        
+        result = arc4random()
+        print("Random Value: \(result!)")
+        
+        result = arc4random_stir()
+        print("Random Value: \(result!)")
+        
+        result = arc4random_uniform(10)
+        print("Random Value: \(result!)")
+        
+        let value = div(5, 2)
+        print("result division: \(value.quot) remainder: \(value.rem)")
+        
+        result = srandom(200)
+        print("miscellaneous random value: \(result!)")
+        
+        result = labs(43343435)
+        print("labs result: \(result!)")
+        
+        let val = ldiv(300, 200)
+        print("ldiv result div: \(val.quot) rem: \(val.rem)")
+        
+        let variable:Int64 = 4897987295723957209
+        result = llabs(variable)
+        print("llabs result: \(result!)")
+        
+        let dividend:Int64 = 4897987295723957209
+        let divider:Int64 = 242342423
+        let r = lldiv(dividend,divider)
+        print("llabs result quot: \(r.quot) rem:\(r.rem)")
+        
+        let string = "H"
+        let cs = string.cString(using: String.Encoding.utf8)!
+        result = mblen(cs, 1)
+        print("result of mblen: \(result!)")
+        
+        typealias set1 = (wchar_t, wchar_t, wchar_t, wchar_t, wchar_t)
+        let string1 = "Hello"
+        var cs1 = string1.cString(using: String.Encoding.windowsCP1254)!
+        var stringSet1 = set1(wchar_t(cs1[0]), wchar_t(cs1[1]), wchar_t(cs1[2]), wchar_t(cs1[3]), wchar_t(cs1[4]))
+        
+        typealias set2 = (CChar, CChar, CChar, CChar, CChar)
+        let string2 = "World"
+        let cs2 = string2.cString(using: String.Encoding.utf8)!
+        var stringSet2 = set2(cs2[0], cs2[1], cs2[2], cs2[3], cs2[4])
+        
+        result = mbtowc(&stringSet1.0,&stringSet2.0 ,5)
+        print("result of mbtowc: \(result!)")
+        
+        result = mbstowcs(&stringSet1.0,&stringSet2.0 ,5)
+        print("result of mbstowcs: \(result!)")
+        
+        let p = (calloc(1, MemoryLayout<Int>.size))
+        print("calloc result : \(p!)")
+        
+        free(p)
+        
+        let q = malloc(5)
+        print("malloc result : \(q!)")
+        
+        let x = realloc(q, 5)
+        print("realloc result : \(x!)")
+        
+        typealias set = (CChar, CChar, CChar, CChar)
+        
+        let getsrc = "PATH 12.3"
+        let getcs = getsrc.cString(using: String.Encoding.utf8)!
+        
+        var getString = set(getcs[0], getcs[1], getcs[2], getcs[3])
+        result = getenv(&getString.0)
+        print("result of getenv function: \(result)")
+        
+       // public func strtod(_: UnsafePointer<Int8>!, _: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>!) -> Double
+        
+    }
+    
+    
+    func strtodC() {
+        
+//        var xStr:Int8 = 123
+//        let yStr:Int8 = 5
+        
+//        let x : UnsafePointer<Int8>? = nil
+//        let y : UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>? = nil
+//        
+//        result = strtod(x, y)
+//        print("result of strtod: \(result)")
+        
+        var nInt:Int8 = 123
+        let p = ptrFromAddress(p: &nInt)
+
+        
+        var nestedInt:Int8 = 5
+        var r = ptrFromAddress(p: &nestedInt)
+        let s = ptrFromAddress(p: &r)
+        
+        result = strtod(p,s)
+        
+//        withUnsafeMutablePointer(&nInt) { (var w) in
+// 
+//        }
+//        
+//        withUnsafeMutablePointer(&myInt) { (var p) in
+//            withUnsafeMutablePointer(&p) { (var pp) in
+//
+//            }
+//        }
+//        
+//        // sting copy method with safe memory allocation
+//        withUnsafeMutablePointer(to: &string1) { str1Ptr in
+//                withUnsafePointer(to: &string2) { str2Ptr in
+//                        _ = strcpy(str1Ptr, str2Ptr)
+//                    }
+//                }
+    }
+    
+    func ptrFromAddress<T>(p:UnsafeMutablePointer<T>) -> UnsafeMutablePointer<T>
+    {
+        return p
+    }
+    
+
+
+    
+}
