@@ -14,13 +14,14 @@ class MathC  {
     let PI = 3.14159265
     
     init()  {
-        swiftTest()
-        simpleFunctions()
-        complexFunctions()
+
     }
     
     func  swiftTest() {
         print("\nMathC Class\n")
+        
+        simpleFunctions()
+        complexFunctions()
     }
     
     

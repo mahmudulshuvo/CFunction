@@ -13,15 +13,15 @@ class StdLibC  {
     var result:Any? = nil
     
     init()  {
-        swiftTest()
-        simpleFunctions()
-        wcstombFunc()
-        complexFunctions()
-       // strtodC()
+ 
     }
     
     func  swiftTest() {
         print("\nStdLibC Class\n")
+        
+        simpleFunctions()
+        wcstombFunc()
+        complexFunctions()
     }
     
     func simpleFunctions() {
@@ -184,6 +184,21 @@ class StdLibC  {
         result = unsetenv(pVal8)
         print("result of unsetenv: \(result)")
         
+        result = abs(234243)
+        print("result of abs: \(result)")
+        
+        result = atof(pVal8)
+        print("result of atof: \(result)")
+        
+        result = atoi(pVal8)
+        print("result of atoi: \(result)")
+        
+        result = atol(pVal8)
+        print("result of atol: \(result)")
+        
+        result = atoll(pVal8)
+        print("result of atoll: \(result)")
+        
     }
 
     
@@ -193,39 +208,40 @@ class StdLibC  {
         return p
     }
     
-    
-    
+}
+
+
 //    func strtodC() {
-    
+
 //        var xStr:Int8 = 123
 //        let yStr:Int8 = 5
-//        
+//
 //        let x : UnsafePointer<Int8>? = nil
 //        let y : UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>? = nil
-//        
+//
 //        result = strtod(x, y)
 //        print("result of strtod: \(result)")
-//        
+//
 //        var nInt:Int8 = 123
 //        let p = ptrFromAddress(p: &nInt)
-//        
-//        
+//
+//
 //        var nestedInt:Int8 = 5
 //        var r = ptrFromAddress(p: &nestedInt)
 //        let s = ptrFromAddress(p: &r)
-//        
+//
 //        result = strtod(p,s)
-        
+
 //        withUnsafeMutablePointer(&nInt) { (var w) in
-//        
+//
 //        }
-//        
+//
 //        withUnsafeMutablePointer(&myInt) { (var p) in
 //            withUnsafeMutablePointer(&p) { (var pp) in
-//        
+//
 //            }
 //        }
-//        
+//
 //        // sting copy method with safe memory allocation
 //        withUnsafeMutablePointer(to: &string1) { str1Ptr in
 //            withUnsafePointer(to: &string2) { str2Ptr in
@@ -233,6 +249,3 @@ class StdLibC  {
 //            }
 //        }
 //    }
-
-    
-}

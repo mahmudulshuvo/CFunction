@@ -12,7 +12,12 @@ class StringC  {
      var result:Any? = nil
     
     init()  {
-        swiftTest()
+
+    }
+    
+    func  swiftTest() {
+        print("\nString Class\n")
+        
         memChar()
         memCmp()
         memCpy()
@@ -53,11 +58,7 @@ class StringC  {
         strlCat()
         strlCpy()
         strMode()
-        timingSafe_bcmp() 
-    }
-    
-    func  swiftTest() {
-        print("\nString Class\n")
+        timingSafe_bcmp()
     }
 
     func memChar() {

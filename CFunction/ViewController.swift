@@ -16,9 +16,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        StdLibC()
-        MathC()
-        StringC()
+        let std = StdLibC()
+        let mathC = MathC()
+        let stringC = StringC()
+        
+        print("\(std.swiftTest())")
+        print("\(mathC.swiftTest())")
+        print("\(stringC.swiftTest())")
     }
     
     override func didReceiveMemoryWarning() {
