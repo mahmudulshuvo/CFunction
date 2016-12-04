@@ -19,16 +19,19 @@ class ViewController: UIViewController {
         let std = StdLibC()
         let mathC = MathC()
         let stringC = StringC()
+        let timeC = TimeC()
+        let fileC = FileC()
         
         print("\(std.swiftTest())")
         print("\(mathC.swiftTest())")
         print("\(stringC.swiftTest())")
+        print("\(timeC.swiftTest())")
+        print("\(fileC.swiftTest())")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }

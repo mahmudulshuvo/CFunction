@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8262F251DF4A67100E3E112 /* TimeC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8262F241DF4A67100E3E112 /* TimeC.swift */; };
+		C8262F271DF4AF2700E3E112 /* FileC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8262F261DF4AF2700E3E112 /* FileC.swift */; };
 		C83858771DEDA02D00579B86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83858761DEDA02D00579B86 /* AppDelegate.swift */; };
 		C83858791DEDA02D00579B86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83858781DEDA02D00579B86 /* ViewController.swift */; };
 		C838587C1DEDA02D00579B86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C838587A1DEDA02D00579B86 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C8262F241DF4A67100E3E112 /* TimeC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeC.swift; sourceTree = "<group>"; };
+		C8262F261DF4AF2700E3E112 /* FileC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileC.swift; sourceTree = "<group>"; };
 		C83858731DEDA02D00579B86 /* CFunction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFunction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83858761DEDA02D00579B86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C83858781DEDA02D00579B86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +111,9 @@
 				C83858781DEDA02D00579B86 /* ViewController.swift */,
 				C85BB1511DF22897005D3009 /* StringC.swift */,
 				C85BB1531DF228B1005D3009 /* StdLibC.swift */,
+				C8262F241DF4A67100E3E112 /* TimeC.swift */,
 				C85BB1551DF228D2005D3009 /* MathC.swift */,
+				C8262F261DF4AF2700E3E112 /* FileC.swift */,
 				C838587A1DEDA02D00579B86 /* Main.storyboard */,
 				C838587D1DEDA02D00579B86 /* Assets.xcassets */,
 				C838587F1DEDA02D00579B86 /* LaunchScreen.storyboard */,
@@ -270,8 +276,10 @@
 			files = (
 				C83858791DEDA02D00579B86 /* ViewController.swift in Sources */,
 				C83858771DEDA02D00579B86 /* AppDelegate.swift in Sources */,
+				C8262F271DF4AF2700E3E112 /* FileC.swift in Sources */,
 				C85BB1521DF22897005D3009 /* StringC.swift in Sources */,
 				C85BB1541DF228B1005D3009 /* StdLibC.swift in Sources */,
+				C8262F251DF4A67100E3E112 /* TimeC.swift in Sources */,
 				C85BB1561DF228D2005D3009 /* MathC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
