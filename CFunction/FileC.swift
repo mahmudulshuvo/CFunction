@@ -24,6 +24,9 @@ class FileC {
     
     func fileFunctions() {
         
+        var valI:Int = 1231
+        let pvalI = ptrFromAddress(p: &valI)
+        
         var val8:Int8 = 12
         let pVal8 = ptrFromAddress(p: &val8)
         
@@ -70,7 +73,6 @@ class FileC {
         
         result = getc(file)
         print("result of getc: \(result)")
-        
         
         print("result of getChar: \(getchar())")
         
@@ -130,11 +132,46 @@ class FileC {
         result = putw(9889, file)
         print("result of putw: \(result)")
         
+        let x:Int32 = 43222
+        result = ungetc(x, file)
+        print("result of ungetc: \(result)")
+        
+        result = fdopen(x, pVal8)
+        print("result of fdopen: \(result)")
+        
+        result =  fileno(file)
+        print("result of fileno: \(result)")
+        
+        result = ctermid(pVal8)
+        print("result of ctermid: \(result)")
+        
+        result = fgetln(file, pvalI)
+        print("result of fgetln: \(result)")
+        
+        result = fmtcheck(pVal8, p2Val8)
+        print("result of fmtcheck: \(result)")
+        
+        result = fpurge(file)
+        print("result of fpurge: \(result)")
+        
+        result = setbuf(file, pVal8)
+        print("result of setbug: \(result)")
+        
+        result = setbuffer(file, pVal8, x)
+        print("result of setbuffer: \(result)")
+        
+        result = setlinebuf(file)
+        print("result of setlinebuf: \(result)")
+        
+        result = zopen(pVal8, p2Val8, x)
+        print("result of zopen; \(result)")
+        
         result = remove(pVal8)
         print("result of remove: \(result)")
         
         result = fclose(file)
         print("result of fclose: \(result)")
+        
 
     }
     
