@@ -92,7 +92,6 @@ class StdLibC  {
         
         free(myPtr)
         
-        
         let q = malloc(5)
         print("malloc result : \(q!)")
         

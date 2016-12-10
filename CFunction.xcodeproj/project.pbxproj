@@ -20,6 +20,7 @@
 		C85BB1541DF228B1005D3009 /* StdLibC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85BB1531DF228B1005D3009 /* StdLibC.swift */; };
 		C85BB1561DF228D2005D3009 /* MathC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85BB1551DF228D2005D3009 /* MathC.swift */; };
 		C89677691DFC2C6E00F8B444 /* CFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = C89677671DFC2C6E00F8B444 /* CFunctions.c */; };
+		C896776C1DFC30B800F8B444 /* CtypeC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C896776B1DFC30B800F8B444 /* CtypeC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		C89677661DFC2C6D00F8B444 /* CFunction-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFunction-Bridging-Header.h"; sourceTree = "<group>"; };
 		C89677671DFC2C6E00F8B444 /* CFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFunctions.c; sourceTree = "<group>"; };
 		C89677681DFC2C6E00F8B444 /* CFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFunctions.h; sourceTree = "<group>"; };
+		C896776B1DFC30B800F8B444 /* CtypeC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CtypeC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				C83858761DEDA02D00579B86 /* AppDelegate.swift */,
 				C83858781DEDA02D00579B86 /* ViewController.swift */,
+				C896776B1DFC30B800F8B444 /* CtypeC.swift */,
 				C85BB1511DF22897005D3009 /* StringC.swift */,
 				C85BB1531DF228B1005D3009 /* StdLibC.swift */,
 				C8262F241DF4A67100E3E112 /* TimeC.swift */,
@@ -122,9 +125,7 @@
 				C838587D1DEDA02D00579B86 /* Assets.xcassets */,
 				C838587F1DEDA02D00579B86 /* LaunchScreen.storyboard */,
 				C83858821DEDA02D00579B86 /* Info.plist */,
-				C89677671DFC2C6E00F8B444 /* CFunctions.c */,
-				C89677681DFC2C6E00F8B444 /* CFunctions.h */,
-				C89677661DFC2C6D00F8B444 /* CFunction-Bridging-Header.h */,
+				C896776A1DFC309100F8B444 /* BridgeCFile */,
 			);
 			path = CFunction;
 			sourceTree = "<group>";
@@ -145,6 +146,16 @@
 				C83858981DEDA02D00579B86 /* Info.plist */,
 			);
 			path = CFunctionUITests;
+			sourceTree = "<group>";
+		};
+		C896776A1DFC309100F8B444 /* BridgeCFile */ = {
+			isa = PBXGroup;
+			children = (
+				C89677671DFC2C6E00F8B444 /* CFunctions.c */,
+				C89677681DFC2C6E00F8B444 /* CFunctions.h */,
+				C89677661DFC2C6D00F8B444 /* CFunction-Bridging-Header.h */,
+			);
+			name = BridgeCFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +299,7 @@
 				C8262F271DF4AF2700E3E112 /* FileC.swift in Sources */,
 				C85BB1521DF22897005D3009 /* StringC.swift in Sources */,
 				C85BB1541DF228B1005D3009 /* StdLibC.swift in Sources */,
+				C896776C1DFC30B800F8B444 /* CtypeC.swift in Sources */,
 				C8262F251DF4A67100E3E112 /* TimeC.swift in Sources */,
 				C85BB1561DF228D2005D3009 /* MathC.swift in Sources */,
 			);

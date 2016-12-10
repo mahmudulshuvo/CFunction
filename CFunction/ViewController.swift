@@ -21,12 +21,15 @@ class ViewController: UIViewController {
         let stringC = StringC()
         let timeC = TimeC()
         let fileC = FileC()
+        let ctypeC = CtypeC()
         
+        print("\(ctypeC.swiftTest())")
         print("\(std.swiftTest())")
         print("\(mathC.swiftTest())")
         print("\(stringC.swiftTest())")
         print("\(timeC.swiftTest())")
         print("\(fileC.swiftTest())")
+        
     }
     
     override func didReceiveMemoryWarning() {
