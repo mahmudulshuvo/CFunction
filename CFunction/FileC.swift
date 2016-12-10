@@ -163,8 +163,8 @@ class FileC {
         result = setlinebuf(file)
         print("result of setlinebuf: \(result)")
         
-        result = zopen(pVal8, p2Val8, x)
-        print("result of zopen; \(result)")
+//        result = zopen(pVal8, p2Val8, x)
+//        print("result of zopen; \(result)")
         
         result = remove(pVal8)
         print("result of remove: \(result)")

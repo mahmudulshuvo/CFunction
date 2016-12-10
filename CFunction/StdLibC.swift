@@ -79,8 +79,8 @@ class StdLibC  {
         
         let p = (calloc(1, MemoryLayout<Int>.size))
         print("calloc result : \(p!)")
-        
         free(p)
+        
         
         let q = malloc(5)
         print("malloc result : \(q!)")
@@ -130,7 +130,7 @@ class StdLibC  {
         let p = ptrFromAddress(p: &val32)
         
         result = ecvt(3434.0324, val32, p, p)
-        print("result of ecvt: \(result)")
+        print("result of ecvt: \(result)") 
         
         var valU16:UInt16 = 4342
         let pValU16 = ptrFromAddress(p: &valU16)
