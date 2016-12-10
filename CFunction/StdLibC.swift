@@ -77,9 +77,20 @@ class StdLibC  {
         result = mbstowcs(&stringSet1.0,&stringSet2.0 ,5)
         print("result of mbstowcs: \(result!)")
         
-        let p = (calloc(1, MemoryLayout<Int>.size))
-        print("calloc result : \(p!)")
-        free(p)
+        let myPtr = (calloc(5, MemoryLayout<Int>.size))
+        print("calloc result : \(myPtr!)")
+        
+        if let intPtr = myPtr?.bindMemory(to: Int32.self, capacity: 5) {
+
+            intPtr[0] = 123;
+            intPtr[1] = 321;
+
+            workWithIntPtr(intPtr)
+            
+            print("After calling C code, the 3rd, 4th and 5th element of the array is \(intPtr[2]) \(intPtr[3]) \(intPtr[4])")
+        }
+        
+        free(myPtr)
         
         
         let q = malloc(5)
