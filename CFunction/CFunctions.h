@@ -10,7 +10,12 @@
 #define CFunctions_h
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #endif /* CFunctions_h */
-
+typedef struct Pointer Pointer;
+Pointer *create_pointer();
+void delete_pointer(Pointer *p);
+int pointer_x(Pointer *p);
+int pointer_y(Pointer *p);
 void workWithIntPtr( int32_t * p);

@@ -58,12 +58,13 @@ class StringC  {
         strlCat()
         strlCpy()
         strMode()
-        timingSafe_bcmp()
+     //   timingSafe_bcmp()
     }
 
     func memChar() {
         let s = initRawAB()
         result = memchr(s, 2, 2)
+        free(s)
         print("result of memChar: \(result)")
     }
     
@@ -72,6 +73,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memcmp(s, r, 2)
+        free(s)
+        free(r)
         print("result of memCmp: \(result)")
     }
     
@@ -80,6 +83,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memcpy(s, r, 2)
+        free(s)
+        free(r)
         print("result of memcpy: \(result)")
     }
     
@@ -88,6 +93,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memmove(s, r, 2)
+        free(s)
+        free(r)
         print("result of memmove: \(result)")
     }
     
@@ -95,6 +102,7 @@ class StringC  {
         
         let s = initRawAB()
         result = memset(s, 2, 2)
+        free(s)
         print("result of memset: \(result)")
     }
     
@@ -519,6 +527,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memccpy(s, r, 2, 2)
+        free(s)
+        free(r)
         print("result of memcCpy: \(result)")
     }
     
@@ -599,6 +609,7 @@ class StringC  {
         
         let s = initRawCD()
         result = memset_s(s, 2, 2, 2)
+//        free(s)
         print("result of memSet_s: \(result)")
     }
     
@@ -607,6 +618,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memmem(s, 3, r, 2)
+//        free(s)
+//        free(r)
         print("result of memMem: \(result)")
     }
     
@@ -616,6 +629,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memset_pattern4(s,r,2)
+//        free(s)
+//        free(r)
         print("result of memSet_pattern4: \(result)")
     }
     
@@ -624,6 +639,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memset_pattern4(s,r,2)
+//        free(s)
+//        free(r)
         print("result of memSet_pattern8: \(result)")
     }
     
@@ -632,6 +649,8 @@ class StringC  {
         let s = initRawAB()
         let r = initRawCD()
         result = memset_pattern16(s,r,2)
+        free(s)
+        free(r)
         print("result of memSet_pattern16: \(result)")
     }
     
@@ -715,25 +734,28 @@ class StringC  {
     }
 
     
-    func timingSafe_bcmp() {
-        let s = initRawAB()
-        let r = initRawCD()
-        result = timingsafe_bcmp(s,r,2)
-        print("result of timingSafe_bcmp: \(result)")
-    }
+//    func timingSafe_bcmp() {
+//        let s = initRawAB()
+//        let r = initRawCD()
+//        result = timingsafe_bcmp(s,r,2)
+//        free(s)
+//        free(r)
+//        print("result of timingSafe_bcmp: \(result)")
+//    }
     
     func initRawAB() -> UnsafeMutableRawPointer {
         let intPtr = UnsafeMutablePointer<Int>.allocate(capacity: 3)
         intPtr[0] = 42
         intPtr[1] = 13
-        intPtr[1] = 64
+        intPtr[2] = 64
         return UnsafeMutableRawPointer(intPtr)
     }
     
     func initRawCD() -> UnsafeMutableRawPointer {
-        let intPtr = UnsafeMutablePointer<Int>.allocate(capacity: 2)
+        let intPtr = UnsafeMutablePointer<Int>.allocate(capacity: 3)
         intPtr[0] = 22 
         intPtr[1] = 43
+        intPtr[2] = 55
         return UnsafeMutableRawPointer(intPtr)
     }
 }

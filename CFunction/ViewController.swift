@@ -20,15 +20,23 @@ class ViewController: UIViewController {
         let mathC = MathC()
         let stringC = StringC()
         let timeC = TimeC()
-        let fileC = FileC()
         let ctypeC = CtypeC()
+        let utilC = UtilC()
+        let copyfileC = CopyfileC()
+        let fenvC = FenvC()
+        let errC = ErrorC()
+      //  let fileC = FileC()
         
+        print("\(copyfileC.swiftTest())")
+        print("\(fenvC.swiftTest())")
+        print("\(errC.swiftTest())")
+        print("\(utilC.swiftTest())")
         print("\(ctypeC.swiftTest())")
         print("\(std.swiftTest())")
         print("\(mathC.swiftTest())")
         print("\(stringC.swiftTest())")
         print("\(timeC.swiftTest())")
-        print("\(fileC.swiftTest())")
+      //  print("\(fileC.swiftTest())")
         
     }
     

@@ -58,26 +58,29 @@ class FileC {
         result = fputs(pVal8, file)
         print("result of fputs: \(result)")
         
-        let ptr = malloc(5)
+        let ptr = (calloc(1, MemoryLayout<Int>.size))
         result = fread(ptr, 3, 2, file)
-        print("result of fread; \(result)")
+        print("result of fread: \(result)")
+        free(ptr)
         
-        result = freopen(pVal8, pVal8, file)
-        print("result of freopen: \(result)")
+//        let file2 = stdout
         
-        result = fseek(file, 3, 34234)
-        print("result of fseek; \(result)")
-        
-        result = fwrite(ptr, 3, 3, file)
-        print("result of ftell: \(result)")
-        
-        result = getc(file)
-        print("result of getc: \(result)")
-        
-        print("result of getChar: \(getchar())")
-        
-        result = gets(pVal8)
-        print("result of gets: \(result)")
+//        result = freopen(pVal8, p2Val8, file)
+//        print("result of freopen: \(result)")
+//
+//        result = fseek(file, 3, 34234)
+//        print("result of fseek: \(result)")
+//        
+//        result = fwrite(ptr, 3, 3, file)
+//        print("result of ftell: \(result)")
+//        
+//        result = getc(file)
+//        print("result of getc: \(result)")
+//        
+//        print("result of getChar: \(getchar())")
+//        
+//        result = gets(pVal8)
+//        print("result of gets: \(result)")
         
         result = perror(pVal8)
         print("result of perror: \(result)")
@@ -131,11 +134,11 @@ class FileC {
         
         result = putw(9889, file)
         print("result of putw: \(result)")
-        
+//
         let x:Int32 = 43222
         result = ungetc(x, file)
         print("result of ungetc: \(result)")
-        
+//
         result = fdopen(x, pVal8)
         print("result of fdopen: \(result)")
         
@@ -166,11 +169,16 @@ class FileC {
 //        result = zopen(pVal8, p2Val8, x)
 //        print("result of zopen; \(result)")
         
-        result = remove(pVal8)
-        print("result of remove: \(result)")
+//        result = remove(pVal8)
+//        print("result of remove: \(result)")
+//
+//        result = fclose(file)
+//        print("result of fclose: \(result)")
         
-        result = fclose(file)
-        print("result of fclose: \(result)")
+//        free(pVal8)
+//        free(ptr)
+//        free(p2Val8)
+//        fr
         
 
     }

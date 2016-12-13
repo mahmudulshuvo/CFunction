@@ -77,26 +77,38 @@ class StdLibC  {
         result = mbstowcs(&stringSet1.0,&stringSet2.0 ,5)
         print("result of mbstowcs: \(result!)")
         
-        let myPtr = (calloc(5, MemoryLayout<Int>.size))
+        let myPtr = (calloc(1, MemoryLayout<Int>.size))
         print("calloc result : \(myPtr!)")
         
-        if let intPtr = myPtr?.bindMemory(to: Int32.self, capacity: 5) {
-
-            intPtr[0] = 123;
-            intPtr[1] = 321;
-
-            workWithIntPtr(intPtr)
-            
-            print("After calling C code, the 3rd, 4th and 5th element of the array is \(intPtr[2]) \(intPtr[3]) \(intPtr[4])")
-        }
-        
-        free(myPtr)
+//        if let intPtr = myPtr?.bindMemory(to: Int32.self, capacity: 5) {
+//
+//            intPtr[0] = 123;
+//            intPtr[1] = 321;
+//
+//            workWithIntPtr(intPtr)
+//            
+//            print("For calloc after calling C code, the 3rd, 4th and 5th element of the array is \(intPtr[2]) \(intPtr[3]) \(intPtr[4])")
+//        }
+//        
+//        free(myPtr)
         
         let q = malloc(5)
         print("malloc result : \(q!)")
+    //    free(q)
+        
+//        if let intPtr = q?.bindMemory(to: Int32.self, capacity: 5) {
+//            
+//            intPtr[0] = 123;
+//            intPtr[1] = 321;
+//            
+//            workWithIntPtr(intPtr)
+//            
+//            print("For malloc after calling C code, the 3rd, 4th and 5th element of the array is \(intPtr[2]) \(intPtr[3]) \(intPtr[4])")
+//        }
         
         let x = realloc(q, 5)
         print("realloc result : \(x!)")
+        free(q)
         
         typealias set = (CChar, CChar, CChar, CChar)
         
@@ -111,6 +123,7 @@ class StdLibC  {
         let add = ptrFromAddress(p: &valI)
         result = a64l(add)
         print("result of a641: \(result)")
+    //    free(add)
         
         result = drand48()
         print("result of drand48: \(result)")
@@ -130,6 +143,8 @@ class StdLibC  {
         
         result = wctomb(p,valWchar)
         print("result of wctomb: \(result)")
+//        free(p)
+//        free(q)
         
     }
     
@@ -152,7 +167,9 @@ class StdLibC  {
         print("result of fcvt: \(result)")
         
         var val8:Int8 = 12
+        var val2:Int8 = 21
         let pVal8 = ptrFromAddress(p: &val8)
+        let paVal8 = ptrFromAddress(p: &val2)
         
         result = gcvt(123.99, val32, pVal8)
         print("result of gcvt: \(result)")
@@ -179,13 +196,13 @@ class StdLibC  {
         result = putenv(pVal8)
         print("result of putenv: \(result)")
         
-        result = realpath(pVal8, pVal8)
+        result = realpath(pVal8, paVal8)
         print("result of realpath: \(result)")
         
         result = seed48(pValU16)
         print("result of seed48: \(result)")
         
-        result = setenv(pVal8, pVal8, 453545)
+        result = setenv(pVal8, paVal8, 453545)
         print("result of setenv: \(result)")
         
         result = setstate(pVal8)
@@ -208,6 +225,11 @@ class StdLibC  {
         
         result = atoll(pVal8)
         print("result of atoll: \(result)")
+        
+//        free(p)
+//        free(pValU16)
+//        free(pVal8)
+//        free(paVal8)
 
     }
 

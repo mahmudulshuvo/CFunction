@@ -50,7 +50,10 @@ class TimeC  {
         print("result of gmtime: \(result!)")
         
         result = localtime(pValTime)
-        print("result of localTime: \(result!)")        
+        print("result of localTime: \(result!)")
+        
+//        free(pValTime)
+//        free(pVal8)
         
     }
     
