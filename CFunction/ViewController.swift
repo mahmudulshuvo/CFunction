@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let copyfileC = CopyfileC()
         let fenvC = FenvC()
         let errC = ErrorC()
-      //  let fileC = FileC()
+        let fileC = FileC()
         
         print("\(copyfileC.swiftTest())")
         print("\(fenvC.swiftTest())")
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         print("\(mathC.swiftTest())")
         print("\(stringC.swiftTest())")
         print("\(timeC.swiftTest())")
-      //  print("\(fileC.swiftTest())")
+        print("\(fileC.swiftTest())")
         
     }
     
