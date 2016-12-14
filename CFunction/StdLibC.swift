@@ -22,6 +22,7 @@ class StdLibC  {
         simpleFunctions()
         wcstombFunc()
         complexFunctions()
+        sortingFunctions()
     }
     
     func simpleFunctions() {
@@ -89,7 +90,7 @@ class StdLibC  {
 //            
 //            print("For calloc after calling C code, the 3rd, 4th and 5th element of the array is \(intPtr[2]) \(intPtr[3]) \(intPtr[4])")
 //        }
-//        
+//
 //        free(myPtr)
         
         let q = malloc(5)
@@ -123,8 +124,7 @@ class StdLibC  {
         let add = ptrFromAddress(p: &valI)
         result = a64l(add)
         print("result of a641: \(result)")
-    //    free(add)
-        
+
         result = drand48()
         print("result of drand48: \(result)")
         
@@ -143,8 +143,6 @@ class StdLibC  {
         
         result = wctomb(p,valWchar)
         print("result of wctomb: \(result)")
-//        free(p)
-//        free(q)
         
     }
     
@@ -226,14 +224,83 @@ class StdLibC  {
         result = atoll(pVal8)
         print("result of atoll: \(result)")
         
-//        free(p)
-//        free(pValU16)
-//        free(pVal8)
-//        free(paVal8)
-
     }
 
-    
+    func sortingFunctions() {
+        
+        var numbers = [2,1,17,3]
+        qsort(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        print("sorted array of numbers for qsort: \(numbers)")
+        
+        numbers = [2,1,17,3]
+        qsort_b(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        
+        print("sorted array of numbers for qsort_b: \(numbers)")
+        
+        numbers = [2,1,17,3]
+        heapsort(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        
+        print("sorted array of numbers for heapsort: \(numbers)")
+        
+        numbers = [2,1,17,3]
+        heapsort_b(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        
+        print("sorted array of numbers for heapsort_b: \(numbers)")
+        
+        
+        numbers = [2,1,17,3,0]
+        mergesort(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        
+        print("sorted array of numbers for mergesort: \(numbers)")
+        
+        
+        numbers = [2,1,17,3,0]
+        mergesort_b(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        
+        print("sorted array of numbers for mergesort_b: \(numbers)")
+        
+        numbers = [2,1,17,3,0]
+        psort(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        
+        print("sorted array of numbers for psort: \(numbers)")
+        
+        numbers = [2,1,17,3,0]
+        psort_b(&numbers, numbers.count, MemoryLayout<Int>.stride) { a, b in
+            let l: UnsafePointer<Int> = (a?.bindMemory(to: Int.self, capacity: 1))!
+            let r: UnsafePointer<Int> = (b?.bindMemory(to: Int.self, capacity: 1))!
+            return r.pointee > l.pointee ? -1 : (r.pointee == l.pointee ? 0 : 1)
+        }
+        
+        print("sorted array of numbers for psort_b: \(numbers)")
+    }
     
     func ptrFromAddress<T>(p:UnsafeMutablePointer<T>) -> UnsafeMutablePointer<T>
     {
