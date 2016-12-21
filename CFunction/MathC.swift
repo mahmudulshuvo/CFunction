@@ -221,56 +221,112 @@ class MathC  {
         
         result = fabs(50.988888)
         print("absolute value of 50.988888 is: \(result!)")
+        
+        result = __exp10(123.0)
+        print("result of __exp10: \(result)")
+        
+        result = __exp10f(22.0)
+        print("result of __exp10f: \(result)")
+        
+        result = __cospif(32.0)
+        print("result of __cospif: \(result)")
+        
+        result = __cospi(111.0)
+        print("result of __cospi: \(result)")
+
+        result = __sinpif(22.0)
+        print("result of __sinpif: \(result)")
+        
+        result = __sinpi(323.0)
+        print("result of __sinpi: \(result)")
+        
+        result = __tanpif(33.0)
+        print("result of __tanpif: \(result)")
+        
+        result = __tanpi(54.0)
+        print("result of __tanpi: \(result)")
+        
+        result = __sincosf_stret(112.0)
+        print("result of __sincosf_stret:\(result)")
+        
+        result = __sincos_stret(112.0)
+        print("result of __sincos_stret:\(result)")
+        
+        result = __sincospif_stret(112.0)
+        print("result of __sincospif_stret:\(result)")
+        
+        result = __sincospi_stret(112.0)
+        print("result of __sincospi_stret:\(result)")
+        
+        let ptrF = ptrFromAddress(p: &fVal)
+        let ptrD = ptrFromAddress(p: &dVal)
+        
+        result = __sincosf(32.0, ptrF, ptrF)
+        print("result of __sincosf: \(result)")
+        
+        result = __sincos(434.0, ptrD, ptrD)
+        print("result of __sincos: \(result)")
+        
+        result = __sincospif(44.0, ptrF, ptrF)
+        print("result of __sincospif: \(result)")
+        
+        result = __sincospi(dVal, ptrD, ptrD)
+        print("result of __sincospi: \(result)")
     }
     
     
     func  complexFunctions() {
         
-        //        result = __fpclassifyf(433.87847)
-        //        print("result of __fpclassifyf: \(result)")
-        //
-        //        result = __fpclassifyd(434333.87847)
-        //        print("result of __fpclassifyf: \(result)")
-        //
-        //        result = __inline_isfinitef(433.87847)
-        //        print("result of __inline_isfinitef: \(result)")
-        //
-        //        result = __builtin_fabsf(433.87847)
-        //        print("result of __builtin_fabsf: \(result)")
-        //
-        //        result = __builtin_inff()
-        //        print("result of __builtin_inff: \(result)")
-        //
-        //        result = __inline_isfinited(434433.87847)
-        //        print("result of __inline_isfinited: \(result)")
-        //
-        //        result = __builtin_fabs(434433.87847)
-        //        print("result of __builtin_fabs: \(result)")
-        //
-        //        result = __builtin_inf()
-        //        print("result of __builtin_inf: \(result)")
-        //
-        //        result = __inline_isinff(433.87847)
-        //        print("result of __inline_isinff: \(result)")
-        //
-        //        result = __inline_isinfd(433.87847)
-        //        print("result of __inline_isinfd: \(result)")
-        //
-        //        result = __inline_isnand(433.87847)
-        //        print("result of __inline_isinfd: \(result)")
-        //
-        //        result = __inline_signbitf(433.87847)
-        //        print("result of __inline_signbitf: \(result)")
-        //
-        //        result = __inline_signbitd(433.87847)
-        //        print("result of __inline_signbitd: \(result)")
-        //        
-        //        result = __inline_isnormalf(433.87847)
-        //        print("result of __inline_isnormalf: \(result)")
-        //        
-        //        result = __inline_isnormald(433.87847)
-        //        print("result of __inline_isnormald: \(result)")
+        result = __fpclassifyf(433.87847)
+        print("result of __fpclassifyf: \(result)")
         
+        result = __fpclassifyd(434333.87847)
+        print("result of __fpclassifyf: \(result)")
+        
+        result = __inline_isfinitef(433.87847)
+        print("result of __inline_isfinitef: \(result)")
+        
+//                result = __builtin_fabsf(433.87847)
+//                print("result of __builtin_fabsf: \(result)")
+//        
+//                result = __builtin_inff()
+//                print("result of __builtin_inff: \(result)")
+        
+        result = __inline_isfinited(434433.87847)
+        print("result of __inline_isfinited: \(result)")
+        
+//                result = __builtin_fabs(434433.87847)
+//                print("result of __builtin_fabs: \(result)")
+//        
+//                result = __builtin_inf()
+//                print("result of __builtin_inf: \(result)")
+        
+        result = __inline_isinff(433.87847)
+        print("result of __inline_isinff: \(result)")
+        
+        result = __inline_isinfd(433.87847)
+        print("result of __inline_isinfd: \(result)")
+        
+        result = __inline_isnand(433.87847)
+        print("result of __inline_isinfd: \(result)")
+        
+        result = __inline_signbitf(433.87847)
+        print("result of __inline_signbitf: \(result)")
+        
+        result = __inline_signbitd(433.87847)
+        print("result of __inline_signbitd: \(result)")
+                
+        result = __inline_isnormalf(433.87847)
+        print("result of __inline_isnormalf: \(result)")
+                
+        result = __inline_isnormald(433.87847)
+        print("result of __inline_isnormald: \(result)")
+        
+    }
+    
+    func ptrFromAddress<T>(p:UnsafeMutablePointer<T>) -> UnsafeMutablePointer<T>
+    {
+        return p
     }
 
 }

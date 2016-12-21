@@ -52,9 +52,55 @@ class TimeC  {
         result = localtime(pValTime)
         print("result of localTime: \(result!)")
         
-//        free(pValTime)
-//        free(pVal8)
+        var valTm = tm()
+        let ptrTm = ptrFromAddress(p: &valTm)
+        result = mktime(ptrTm)
+        print("result of mktime: \(result)")
         
+        result = strftime(pVal8, 2, pVal8, ptrTm)
+        print("result of strftime: \(result)")
+        
+        result = strptime(pVal8, pVal8, ptrTm)
+        print("result of strptime: \(result)")
+        
+        result = time(pValTime)
+        print("result of time: \(result)")
+        
+        result = tzset()
+        print("result of tzset: \(result)")
+        
+        result = asctime(ptrTm)
+        print("result of asctime: \(result)")
+        
+        result = ctime_r(pValTime, pVal8)
+        print("result of ctime_r: \(result)")
+        
+        result = gmtime_r(pValTime, ptrTm)
+        print("result of gmtime_r: \(result)")
+        
+        result = localtime_r(pValTime, ptrTm)
+        print("result of localtime_r: \(result)")
+        
+        result = posix2time(valTime2)
+        print("result of posix2time: \(result)")
+        
+        result = tzsetwall()
+        print("result of tzsetwall: \(result)")
+        
+        result = time2posix(valTime2)
+        print("result of time2posix: \(result)")
+        
+        result = timelocal(ptrTm)
+        print("result of timelocal: \(result)")
+        
+        result = timegm(ptrTm)
+        print("result of timegm: \(result)")
+        
+        var valTmSpec = timespec()
+        let ptrTmSpec = ptrFromAddress(p: &valTmSpec)
+        
+        result = nanosleep(ptrTmSpec, ptrTmSpec)
+        print("result of nanosleep: \(result)")        
     }
     
     func ptrFromAddress<T>(p:UnsafeMutablePointer<T>) -> UnsafeMutablePointer<T>

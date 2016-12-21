@@ -32,6 +32,9 @@ class CtypeC  {
         result = ___tolower(__darwin_ct_rune_t.min)
         print("result of ___tolower: \(result!)")
         
+        result = ___toupper(__darwin_ct_rune_t.min)
+        print("result of ___toupper: \(result!)")
+        
         result = isascii(32434)
         print("result of isascii: \(result!)")
         

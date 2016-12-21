@@ -225,6 +225,32 @@ class StdLibC  {
         result = atoll(pVal8)
         print("result of atoll: \(result)")
         
+        let devT = __darwin_dev_t()
+        let modeT = __darwin_mode_t()
+        var val:Int = 324
+        var valD:Double = 42.0
+        let ptrValD = ptrFromAddress(p: &valD)
+        let ptrVal = ptrFromAddress(p: &val)
+        
+        result = devname(devT, modeT)
+        print("result of devname: \(result)")
+        
+        result = devname_r(devT, modeT, pVal8, 32423)
+        print("result of devname_r: \(result)")
+        
+        result = getbsize(p, ptrVal)
+        print("result of getbsize: \(result)")
+        
+        result = getloadavg(ptrValD, 343)
+        print("result of getloadavg: \(result)")
+        
+        result = getprogname()
+        print("result of getprogname: \(result)")
+        
+//        var values = [1,2,3]
+//        result = realloc(&values, 3)
+//        print("result of realloc: \(result)")
+
     }
 
     func sortingFunctions() {

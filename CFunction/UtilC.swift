@@ -40,6 +40,10 @@ class UtilC {
 //        let pidPtr = ptrFromAddress(p: &pid)
 //        let iovecPtr = ptrFromAddress(p: &vIovec)
         
+        
+        result = login_tty(32)
+        print("result of login_tty: \(result)")
+        
         result = openpty(vInt32Ptr, vInt32Ptr, vInt8Ptr, termiosPtr, winsizePtr)
         print("result of openpty: \(result)")
         
@@ -49,7 +53,7 @@ class UtilC {
         result = forkpty(vInt32Ptr, vInt8Ptr, termiosPtr, winsizePtr)
         print("result of forkpty: \(result)")
         
-//        result = pidlock(vIntPtr, 3242, pidPtr, vIntPtr)
+//        result = pidlock(vIntPtr, 3242, pidPtr, vIntPtr) 
 //        print("result of pidlock: \(result)")
 //        
 //        result = ttylock(vIntPtr, 4534, pidPtr)
